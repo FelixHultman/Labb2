@@ -23,7 +23,9 @@ public class Main {
                 break;
             }
 
+
             player.move(command, maze);
+            maze.updateMonsters();
             System.out.println();
             maze.printMaze(player.getX(), player.getY());
 

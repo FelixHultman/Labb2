@@ -14,7 +14,10 @@ public class Maze {
             {1, 1, 1, 0, 1, 1},
             {0, 0, 1, 0, 0, 0},
             {1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 1},
+            {1, 1, 1, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0},
+            {1, 1, 1, 1, 1, 0},
+
     };
 
     private List<Item> items = new ArrayList<Item>();
@@ -71,6 +74,14 @@ public class Maze {
         for (Item item : items) {
             if (item.getX() == playerX && item.getY() == playerY) {
                 item.interact(player);
+            }
+        }
+    }
+
+    public void updateMonsters() {
+        for (Item item : items) {
+            if (item instanceof Moveable) {
+                ((Moveable) item).move("", this);
             }
         }
     }

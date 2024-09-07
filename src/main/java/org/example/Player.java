@@ -1,6 +1,6 @@
 package org.example;
 
-public class Player {
+public class Player implements Moveable {
     private String playerName;
     private int x;
     private int y;
@@ -15,6 +15,7 @@ public class Player {
         this.strength = 10;
     }
 
+    @Override
     public void move(String direction, Maze maze) {
         int newX = x;
         int newY = y;
