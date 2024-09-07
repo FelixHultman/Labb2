@@ -26,7 +26,6 @@ public class Player {
             case "d" -> newX++;
             default -> {
                 System.out.println("Invalid direction");
-
             }
         }
 

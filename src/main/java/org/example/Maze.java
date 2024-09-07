@@ -2,12 +2,13 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Maze {
     private static final int Wall = 0;
     private static final int Path = 1;
 
-    private int[][] layout = {
+    private final int[][] layout = {
             {1, 0, 1, 1, 1, 0},
             {1, 0, 1, 0, 1, 0},
             {1, 1, 1, 0, 1, 1},
@@ -29,23 +30,33 @@ public class Maze {
             for (int x = 0; x < layout[y].length; x++) {
                 if (x == playerX && y == playerY) {
                     System.out.print("P ");
-                } else if (isItemAt(x, y)) {
-                    System.out.print("T ");
                 } else {
-                    System.out.print(layout[y][x] == Wall ? "# " : ". ");
+                    Optional<Item> itemOptional = getItemAtPosition(x, y);
+                    if (itemOptional.isPresent()) {
+                        Item item = itemOptional.get();
+                        if (item instanceof Item.Treasure) {
+                            System.out.print("T ");
+                        } else if (item instanceof Item.Upgrade) {
+                            System.out.print("U ");
+                        } else if (item instanceof Item.Monster) {
+                            System.out.print("M ");
+                        }
+                    } else {
+                        System.out.print((layout[y][x] == Wall ? "# " : ". "));
+                    }
                 }
             }
             System.out.println();
         }
     }
 
-    private boolean isItemAt(int x, int y) {
+    private Optional<Item> getItemAtPosition(int x, int y) {
         for (Item item : items) {
             if (item.getX() == x && item.getY() == y) {
-                return true;
+                return Optional.of(item);
             }
         }
-        return false;
+        return Optional.empty();
     }
 
 

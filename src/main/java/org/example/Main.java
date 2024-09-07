@@ -23,9 +23,10 @@ public class Main {
                 break;
             }
 
-            maze.printMaze(player.getX(), player.getY());
-            System.out.println();
             player.move(command, maze);
+            System.out.println();
+            maze.printMaze(player.getX(), player.getY());
+
         }
         scanner.close();
     }
