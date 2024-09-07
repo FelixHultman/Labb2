@@ -33,13 +33,14 @@ public class Item {
     }
 
     public static class Upgrade extends Item {
+
         public Upgrade(int x, int y) {
             super(x, y);
         }
 
         @Override
         public void interact(Player player) {
-            System.out.println("You found an upgrade!, lets go Fight!");
+            System.out.println("You found an upgrade!, Now lets go Fight!");
             // Implement upgrade interaction logic
         }
     }

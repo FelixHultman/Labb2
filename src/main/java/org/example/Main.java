@@ -21,12 +21,11 @@ public class Main {
             if (command.equals("quit")) {
                 System.out.println("Game ending, coward!");
                 break;
-
             }
 
-            player.move(command, maze);
             maze.printMaze(player.getX(), player.getY());
-
+            System.out.println();
+            player.move(command, maze);
         }
         scanner.close();
     }
