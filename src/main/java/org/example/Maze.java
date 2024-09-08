@@ -70,13 +70,7 @@ public class Maze {
         return layout[y][x] == Wall;
     }
 
-    public void handleInteraction(int playerX, int playerY, Player player) {
-        for (Item item : items) {
-            if (item.getX() == playerX && item.getY() == playerY) {
-                item.interact(player);
-            }
-        }
-    }
+    public void handleInteraction(int playerX, int playerY, Player player) {}
 
     public void updateMonsters() {
         for (Item item : items) {
