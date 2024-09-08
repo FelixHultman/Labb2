@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         Maze maze = new Maze();
-        Player player = new Player("Cis-Kingen", 0, 0);
+        Player player = new Player("John doe", 0, 0);
 
         Scanner scanner = new Scanner(System.in);
         String command;
