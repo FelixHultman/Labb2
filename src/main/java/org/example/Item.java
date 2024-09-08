@@ -83,11 +83,11 @@ public abstract class Item {
             }
 
             if (maze.isWall(newX, newY)) {
-                System.out.println("Monster hit a wall!");
+                System.out.println("monster might be blind, it hit a wall");
             } else {
                 setX(newX);
                 setY(newY);
-                System.out.println("Monster is moving...");
+                System.out.println("Monster is moving...caution please");
             }
 
             moveCounter++;
